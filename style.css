@@ -1,0 +1,269 @@
+@font-face {
+    font-family: "Freepixel";
+    src: url("./assets/fonts/FreePixel.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "VCR OSD Mono";
+    src: url("./assets/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+}
+
+:root {
+    --background: #15191a;
+    --main-color: #c6c4c3;
+    --main-color-dk: #9b959a;
+    --accent-1: #7a726a;
+    --accent-2: #2d2723;
+    --text-color: #f3f2f2;
+    --link-color: #af492c;
+    --content-spacing: 5px;
+    --border: 1px solid black;
+    --background-img: url("./assets/sprites/background.png");
+    --banner: url("./assets/sprites/banner.png");
+    --titleBars: url("./assets/sprites/bar.png");
+    --priorityBtn: url("./assets/sprites/priority.png");
+    --closeBtn: url("./assets/sprites/close.png");
+}
+
+html, body {
+    font-family: "FreePixel";
+    color: var(--text-color);
+}
+
+.topbar {
+    background-image: var(--banner);
+    height: 150px;
+    width: 100%;
+    margin-bottom: var(--content-spacing);
+    border: var(--border);
+}
+
+.topbar img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+#contMain {
+    background-image: var(--background-img);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh; /* Changed to viewport height */
+    margin: 0; /* Remove default margins */
+}
+
+#contBody {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    width: 800px;
+    height: 600px;
+    resize: both;
+    overflow: auto;
+}
+
+#contBodyHeader {
+    background-image: var(--titleBars);
+    background-color: var(--accent-2);
+    box-sizing: border-box;
+    border: var(--border);
+    width: 100%;
+    height: 25px;
+    flex-shrink: 0;
+    font-size: 18px;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space between buttons and title */
+}
+
+.title-btn {
+    width: 15px;
+    height: 15px;
+    border: var(--border);
+    cursor: pointer;
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.title-btn:hover {
+    background-color: var(--main-color-dk);
+}
+
+.title-btn:active {
+    background-color: var(--accent-1);
+}
+
+.title-text {
+    flex-grow: 1; /* Allow title to take available space */
+    text-align: center;
+    line-height: 25px; /* Maintain vertical centering */
+}
+
+/* If you want to use sprites instead of colored buttons */
+.left-btn {
+    background: var(--priorityBtn) no-repeat center;
+    /* Adjust background-position based on your sprite */
+}
+
+.right-btn {
+    background: var(--closeBtn) no-repeat center;
+    /* You might need to flip or position differently */
+}
+
+#contBodyRaw1, #contBodyRaw2, #contBodyRaw3 {
+    font-family: "Freepixel";
+    display: block;
+    flex-direction: row;
+    box-sizing: border-box;
+    border: var(--border);
+    width: 100%;
+    height: 100%; /* This will now work properly */
+    flex: 1; /* Allow flexible distribution of remaining space */
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+#welcome {
+    font-family: "VCR OSD Mono";
+    font-size: 36px;
+    font-weight: 1600;
+}
+
+#who {
+    margin-top: -16px;
+    font-weight: 600;
+}
+
+.subheader {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.content {
+    font-size: 18px;
+}
+
+/* REMOVE or COMMENT OUT these conflicting rules: */
+/*
+.content div {
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 16px; 
+}
+
+.content p {
+    flex: 1; 
+}
+*/
+
+/* KEEP everything else and ADD this fix: */
+.content > div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 25px;
+    width: 100%;
+}
+
+.text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0; /* Important for text wrapping */
+}
+
+.image-column {
+    flex-shrink: 0;
+    width: 235px;
+}
+
+.text-column p {
+    margin: 0;
+    line-height: 1.5;
+    width: 100%; /* Ensure paragraphs take full width */
+}
+
+.interests-list {
+    margin: 0;
+    padding-left: 45px;
+    list-style-type: none;
+    width: 100%; /* Ensure list takes full width */
+}
+
+.interests-list li {
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.interests-list li::before {
+    content: ">";
+    position: absolute;
+    left: -15px;
+    color: var(--link-color);
+    font-weight: bold;
+}
+
+.image-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#me {
+    width: 230px;
+    height: 230px;
+    border: var(--border);
+}
+
+figcaption {
+    font-family: "Freepixel";
+    font-size: 12px;
+    color: var(--text-color);
+    text-align: center;
+    font-style: italic;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.contact-list {
+    list-style-type: none;
+}
+
+.contact-list p {
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.contact-list a {
+    color: var(--link-color);
+}
+
+.dev-tag {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    position: relative;
+    padding-left: 25px;
+    top: -0.5px;
+    margin-right: 4px;
+}
