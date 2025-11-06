@@ -7,13 +7,30 @@
         <link rel="icon" href="./assets/icons/portfolio.png" type="image">
     </head>
     <body>
+        <div id="startBody">
+            <div id="startBodyHeader">
+                <span class="user">Sean Vincent Rodriguez</span>
+                <button class="title-btn shutdown-btn" id="refreshBtn"></button>
+            </div>
+            <div id="startBodyRaw1">
+                <p>About<span class="menu-arrow"></span></p>
+            </div>
+            <div id="startBodyRaw2">
+                <p>Educationn<span class="menu-arrow"></span></p>
+            </div>
+            <div id="startBodyRaw3">
+                <p>Projects<span class="menu-arrow"></span></p>
+            </div>
+        </div>
         <div id="contMain">
             <div id="contBody">
                 <div id="contBodyHeader">
                     <button class="title-btn left-btn" id="priorityBtn"></button>
-                    <span class="title-text">Sean Rodriguez - Portfolio</span>
-                    <button class="title-btn right-btn" id="closeBtn"></button></div>
+                    <span class="title-text">portfolio.html</span>
+                    <button class="title-btn right-btn" id="closeBtn"></button>
+                </div>
                 <div id="contBodyRaw1">
+                    <!-- Your existing portfolio content -->
                     <h1 id="welcome">Welcome</h1>
                     <h4 id="who">I'm Sean Rodriguez</h4>
                     <hr id="div">
@@ -29,7 +46,6 @@
                                     <li>Operating Systems.</li>
                                 </ul>
                                 <p>I enjoy understanding how systems work at a low level and see how everything comes to be.</p>
-                                <!-- You can add more paragraphs here and they'll stack properly -->
                             </div>
                             <div class="image-column">
                                 <figure class="image-figure">
@@ -47,6 +63,7 @@
                 </div>
             </div>
         </div>
+        <script src="startMenu.js"></script>
         <script src="draggableWindow.js"></script>
     </body>
 </html>

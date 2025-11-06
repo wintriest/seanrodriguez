@@ -23,6 +23,7 @@
     --titleBars: url("./assets/sprites/bar.png");
     --priorityBtn: url("./assets/sprites/priority.png");
     --closeBtn: url("./assets/sprites/close.png");
+    --shutdownBtn: url("./assets/sprites/shutdown.png");
 }
 
 html, body {
@@ -43,15 +44,251 @@ html, body {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
 }
-
-#contMain {
+/* Start Menu */
+/* Start Menu - Fixed at top left */
+/* Start Menu - Fixed at top left */
+#startMain {
     background-image: var(--background-img);
     position: absolute;
     left: 0px;
     top: 0px;
     width: 100%;
-    height: 100vh; /* Changed to viewport height */
-    margin: 0; /* Remove default margins */
+    height: 100vh;
+    margin: 0;
+}
+
+#startBody {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 220px;
+    height: 200px;
+    resize: none;
+    overflow: hidden; /* Change to hidden to prevent scrollbars */
+    z-index: 1000;
+}
+
+#startBodyHeader {
+    background-image: var(--titleBars);
+    background-color: var(--accent-2);
+    box-sizing: border-box;
+    border: var(--border);
+    width: 100%;
+    height: 25px;
+    flex-shrink: 0;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.user {
+    flex-grow: 1;
+    text-align: left;
+    line-height: 25px;
+}
+
+.shutdown-btn {
+    background: var(--shutdownBtn) no-repeat center;
+}
+
+/* Start Menu Rows - Equal height based on header */
+#startBodyRaw1, #startBodyRaw2, #startBodyRaw3 {
+    font-family: "Freepixel";
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: var(--border);
+    border-top: none;
+    width: 100%;
+    height: 25px; /* Same height as header */
+    flex-shrink: 0; /* Prevent growing/shrinking */
+    padding: 0 0.5em;
+    margin: 0;
+    position: relative;
+}
+
+/* Start Menu Text Styles */
+#startBodyRaw1 p, #startBodyRaw2 p, #startBodyRaw3 p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 25px; /* Match container height */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Arrow design for menu items */
+.menu-arrow {
+    content: ">";
+    font-size: 12px;
+    color: var(--link-color);
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+/* Alternative: Using pseudo-element for arrow */
+#startBodyRaw1 p::after,
+#startBodyRaw2 p::after,
+#startBodyRaw3 p::after {
+    content: ">";
+    font-size: 12px;
+    color: var(--link-color);
+    margin-left: auto;
+    padding-left: 10px;
+}
+
+/* Hover effects for menu rows */
+#startBodyRaw1:hover, #startBodyRaw2:hover, #startBodyRaw3:hover {
+    background-color: var(--accent-2);
+    cursor: pointer;
+}
+
+/* Submenu Window Styles */
+.submenu-window {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 200px;
+    resize: none;
+    overflow: hidden;
+    z-index: 1001; /* Higher than start menu */
+    border: var(--border);
+}
+
+.submenu-header {
+    background-image: var(--titleBars);
+    background-color: var(--accent-2);
+    box-sizing: border-box;
+    border-bottom: var(--border);
+    width: 100%;
+    height: 25px;
+    flex-shrink: 0;
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.submenu-title {
+    flex-grow: 1;
+    text-align: left;
+    line-height: 25px;
+}
+
+.submenu-row {
+    font-family: "Freepixel";
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: var(--border);
+    width: 100%;
+    height: 25px;
+    flex-shrink: 0;
+    padding: 0 0.5em;
+    margin: 0;
+    position: relative;
+}
+
+.submenu-row:last-child {
+    border-bottom: none;
+}
+
+.submenu-row p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submenu-row:hover {
+    background-color: var(--accent-2);
+    cursor: pointer;
+}
+
+/* Adjust start body height based on number of rows */
+#startBody {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 220px;
+    height: calc(25px + (25px * 3)); /* Header + 3 rows */
+    resize: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Add active state for clicked row */
+#startBodyRaw1.active {
+    background-color: var(--link-color);
+}
+
+#startBodyRaw1.active p {
+    color: var(--text-color);
+}
+
+/* Submenu Window Styles - Keep existing plus add pointer */
+.submenu-window {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 200px;
+    resize: none;
+    overflow: hidden;
+    z-index: 1001;
+    border: var(--border);
+    cursor: default; /* Prevent text selection cursor */
+}
+
+/* Remove the old raw styles and replace with the ones above */
+
+/* Add this to your CSS */
+.window {
+    /* This class will be used for z-index management */
+}
+
+#startBody, #contBody {
+    z-index: 1;
+}
+
+.window.front {
+    z-index: 100;
+}
+
+/* About Me Section */
+#contMain {
+    background-image: var(--background-img);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: auto; /* Height locked to viewport, width scales automatically */
+    background-attachment: fixed;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
 #contBody {
@@ -60,7 +297,7 @@ html, body {
     flex-direction: column;
     position: absolute;
     left: 200px;
-    top: 200px;
+    top: 150px;
     width: 800px;
     height: 600px;
     resize: both;
@@ -101,20 +338,17 @@ html, body {
 }
 
 .title-text {
-    flex-grow: 1; /* Allow title to take available space */
+    flex-grow: 1;
     text-align: center;
-    line-height: 25px; /* Maintain vertical centering */
+    line-height: 25px;
 }
 
-/* If you want to use sprites instead of colored buttons */
 .left-btn {
     background: var(--priorityBtn) no-repeat center;
-    /* Adjust background-position based on your sprite */
 }
 
 .right-btn {
     background: var(--closeBtn) no-repeat center;
-    /* You might need to flip or position differently */
 }
 
 #contBodyRaw1, #contBodyRaw2, #contBodyRaw3 {
@@ -124,8 +358,8 @@ html, body {
     box-sizing: border-box;
     border: var(--border);
     width: 100%;
-    height: 100%; /* This will now work properly */
-    flex: 1; /* Allow flexible distribution of remaining space */
+    height: 100%;
+    flex: 1;
     padding-left: 1.5em;
     padding-right: 1.5em;
 }
@@ -151,21 +385,6 @@ html, body {
     font-size: 18px;
 }
 
-/* REMOVE or COMMENT OUT these conflicting rules: */
-/*
-.content div {
-    display: flex; 
-    flex-direction: row; 
-    align-items: flex-start; 
-    gap: 16px; 
-}
-
-.content p {
-    flex: 1; 
-}
-*/
-
-/* KEEP everything else and ADD this fix: */
 .content > div {
     display: flex;
     flex-direction: row;
@@ -266,4 +485,198 @@ figcaption {
     padding-left: 25px;
     top: -0.5px;
     margin-right: 4px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets (768px and below) */
+@media (max-width: 1024px) {
+    #contMain {
+        background-size: cover;
+        background-position: top center; /* Keep top alignment even when covering */
+    }
+}
+
+@media (max-width: 768px) {
+    #contBody {
+        left: 50px !important;
+        top: 100px !important;
+        width: 85vw !important;
+        /* REMOVE height changes - keep original behavior */
+        max-width: 600px;
+        /* REMOVE max-height: 500px; */
+    }
+    
+    .content-row {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+    
+    .image-column {
+        width: 100% !important;
+        text-align: center;
+    }
+    
+    #me {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    
+    .text-column p {
+        font-size: 16px;
+    }
+    
+    #welcome {
+        font-size: 28px !important;
+    }
+    
+    .subheader {
+        font-size: 22px !important;
+    }
+}
+
+/* Phones (480px and below) */
+@media (max-width: 480px) {
+    #contBody {
+        left: 20px !important;
+        top: 80px !important;
+        width: 90vw !important;
+        /* REMOVE height changes - keep original behavior */
+        max-width: none;
+        /* REMOVE max-height: none; */
+    }
+    
+    #contBodyRaw1 {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+    }
+    
+    .content > div {
+        flex-direction: column !important;
+        gap: 15px;
+    }
+    
+    #me {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    #welcome {
+        font-size: 24px !important;
+    }
+    
+    #who {
+        font-size: 14px !important;
+        margin-top: -12px !important;
+    }
+    
+    .subheader {
+        font-size: 20px !important;
+    }
+    
+    .content {
+        font-size: 16px !important;
+    }
+    
+    .text-column p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .interests-list {
+        padding-left: 30px !important;
+    }
+    
+    .interests-list li {
+        font-size: 14px;
+    }
+    
+    .contact-list p {
+        font-size: 14px;
+    }
+    
+    .dev-tag {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Large Phones (481px to 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    #contBody {
+        left: 30px !important;
+        top: 90px !important;
+        width: 88vw !important;
+        /* REMOVE height changes - keep original behavior */
+    }
+    
+    #me {
+        width: 160px !important;
+        height: 160px !important;
+    }
+    
+    #welcome {
+        font-size: 26px !important;
+    }
+}
+
+/* Small Tablets (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #contBody {
+        left: 100px !important;
+        top: 120px !important;
+        width: 80vw !important;
+        /* REMOVE height changes - keep original behavior */
+    }
+}
+
+/* Start Menu Responsive */
+@media (max-width: 480px) {
+    #startBody {
+        width: 180px !important;
+        height: calc(25px + (25px * 3)) !important;
+    }
+    
+    .submenu-window {
+        width: 160px !important;
+    }
+    
+    .user {
+        font-size: 14px;
+    }
+}
+
+/* Ensure the start menu stays usable on mobile */
+@media (max-width: 768px) {
+    #startBody {
+        z-index: 1000 !important;
+    }
+    
+    .submenu-window {
+        z-index: 1001 !important;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    .title-btn {
+        min-width: 20px;
+        min-height: 20px;
+    }
+    
+    #startBodyRaw1:hover, 
+    #startBodyRaw2:hover, 
+    #startBodyRaw3:hover,
+    .submenu-row:hover {
+        background-color: transparent;
+    }
+    
+    #startBodyRaw1:active, 
+    #startBodyRaw2:active, 
+    #startBodyRaw3:active,
+    .submenu-row:active {
+        background-color: var(--accent-2);
+    }
 }

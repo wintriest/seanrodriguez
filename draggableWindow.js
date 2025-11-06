@@ -1,22 +1,36 @@
+// draggableWindow.js - Only make portfolio window draggable
 document.addEventListener('DOMContentLoaded', function() {
-    dragElement(document.getElementById("contBody"));
+    // Only initialize drag for portfolio window
+    const portfolioWindow = document.getElementById("contBody");
+    if (portfolioWindow) {
+        dragElement(portfolioWindow);
+    }
     
-    // Close button functionality
-    document.getElementById("closeBtn").addEventListener('click', function() {
-        document.getElementById("contBody").style.display = 'none';
-    });
+    // Close button functionality - only for portfolio
+    const closeBtn = document.getElementById("closeBtn");
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            document.getElementById("contBody").style.display = 'none';
+        });
+    }
     
-    // Priority button functionality (bring to front)
-    document.getElementById("priorityBtn").addEventListener('click', function() {
-        bringToFront(document.getElementById("contBody"));
-    });
+    // Priority button functionality - only for portfolio
+    const priorityBtn = document.getElementById("priorityBtn");
+    if (priorityBtn) {
+        priorityBtn.addEventListener('click', function() {
+            bringToFront(document.getElementById("contBody"));
+        });
+    }
 });
 
 function dragElement(elem) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
     // Only make the header area (not the buttons) draggable
-    elem.querySelector('.title-text').onmousedown = dragMouseDown;
+    const titleText = elem.querySelector('.title-text');
+    if (titleText) {
+        titleText.onmousedown = dragMouseDown;
+    }
 
     function dragMouseDown(e) {
         e = e || window.event;
