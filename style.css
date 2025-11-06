@@ -29,6 +29,7 @@
 html, body {
     font-family: "FreePixel";
     color: var(--text-color);
+    background-color: var(--background);
 }
 
 .topbar {
