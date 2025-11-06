@@ -71,6 +71,7 @@ html, body {
     z-index: 1000;
 }
 
+/* Start Menu Header - Prevent text wrapping */
 #startBodyHeader {
     background-image: var(--titleBars);
     background-color: var(--accent-2);
@@ -87,12 +88,20 @@ html, body {
     align-items: center;
     justify-content: center;
     cursor: default;
+    /* ADD THESE LINES TO PREVENT WRAPPING */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .user {
     flex-grow: 1;
     text-align: left;
     line-height: 25px;
+    /* ADD THESE LINES TO PREVENT WRAPPING */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .shutdown-btn {
