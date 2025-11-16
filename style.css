@@ -535,7 +535,7 @@ figcaption {
 /* Specific laptop fixes - but keep it close to navbar */
 @media (width: 1920px) and (height: 1080px) {
     .window {
-        transform: scale(0.95); /* Slightly smaller to prevent cropping */
+        transform: scale(0.75); /* Slightly smaller to prevent cropping */
         top: 62px !important; /* Still close to navbar */
     }
 }
