@@ -356,6 +356,10 @@ figcaption {
 }
 
 /* ===== EDUCATION LAYOUT - NUCLEAR OPTION ===== */
+.welcome {
+    margin-top: -5px;
+}
+
 .education-list {
     display: flex !important;
     flex-direction: column !important;
