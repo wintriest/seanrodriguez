@@ -6,67 +6,39 @@
         <meta http-equiv="Expires" content="0">
         <meta charset="UTF-8"/>
         <title>Sean Rodriguez - Portfolio</title>
-        <link rel="stylesheet" href="style.css?v=2.1">
+        <link rel="stylesheet" href="style.css?v=2.4">
         <link rel="icon" href="./assets/icons/portfolio.png" type="image">
     </head>
     <body>
-        <div id="startBody">
-            <div id="startBodyHeader">
-                <span class="user">Sean Vincent Rodriguez</span>
-                <button class="title-btn shutdown-btn" id="refreshBtn"></button>
-            </div>
-            <div id="startBodyRaw1">
-                <p>About<span class="menu-arrow"></span></p>
-            </div>
-            <div id="startBodyRaw2">
-                <p>Education<span class="menu-arrow"></span></p>
-            </div>
-            <div id="startBodyRaw3">
-                <p>Projects<span class="menu-arrow"></span></p>
-            </div>
-        </div>
-        <div id="contMain">
-            <div id="contBody">
-                <div id="contBodyHeader">
-                    <button class="title-btn left-btn" id="priorityBtn"></button>
-                    <span class="title-text">portfolio.html</span>
-                    <button class="title-btn right-btn" id="closeBtn"></button>
-                </div>
-                <div id="contBodyRaw1">
-                    <!-- Your existing portfolio content -->
-                    <h1 id="welcome">Welcome</h1>
-                    <h4 id="who">I'm Sean Rodriguez</h4>
-                    <hr id="div">
-                    <div class="content">
-                        <h3 class="subheader">About Me</h3>
-                        <div class="content-row">
-                            <div class="text-column">
-                                <p style="margin-top:14px;">Hello, I'm <b>Sean Vincent Rodriguez</b>; a first-year Computer Science student currently exploring:</p>
-                                <ul class="interests-list">
-                                    <li>Retrocomputing;</li>
-                                    <li>Game Development;</li>
-                                    <li>Cybersecurity;</li>
-                                    <li>Operating Systems.</li>
-                                </ul>
-                                <p>I enjoy understanding how systems work at a low level and see how everything comes to be.</p>
-                            </div>
-                            <div class="image-column">
-                                <figure class="image-figure">
-                                    <img id="me" src="/assets/sprites/seanRodriguez.jpg">
-                                    <figcaption><b>Figure 1:</b> Me, May 2025</figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content contact-list">
-                        <h3 class="subheader">Contact</h3>
-                        <p><img src="./assets/icons/e-mail.png" alt="e-mail" class="dev-tag">Email: <a href="mailto:rodriguezseanvincent@gmail.com">rodriguezseanvincent@gmail.com</a></p>
-                        <p><img src="./assets/icons/github.png" alt="github" class="dev-tag">GitHub: <a href="https://www.github.com/wintriest" target="_blank">@wintriest</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="startMenu.js?v=1.2"></script>
-        <script src="draggableWindow.js?v=2.1"></script>
+        <header>
+            <h1 class="navLeft">Sean Rodriguez</h1>
+            <nav class="navBar">
+                <ul class="navLinks">
+                    <li><a href="#about" data-window="about">About Me</a></li>
+                    <li><a href="#education" data-window="education">Education</a></li>
+                </ul>            
+            </nav>
+            <div class="navRight">My Portfolio</div>
+        </header>
+        <div id="contMain"></div>
+        
+        <!-- Debug script to check if JS is loading -->
+        <script>
+            console.log('HTML loaded, about to load windowManager.js');
+        </script>
+        
+        <script src="windowManager.js?v=1.5"></script> <!-- Updated to v1.2 -->
+        <script src="draggableWindow.js?v=2.5"></script>
+        
+        <!-- Debug script to check if windowManager initialized -->
+        <script>
+            console.log('Scripts loaded, checking windowManager...');
+            setTimeout(() => {
+                console.log('WindowManager exists:', typeof windowManager !== 'undefined');
+                if (windowManager) {
+                    console.log('Windows created:', windowManager.windows.size);
+                }
+            }, 100);
+        </script>
     </body>
 </html>

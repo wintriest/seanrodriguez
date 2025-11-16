@@ -1,13 +1,33 @@
+/* ===== FONT DEFINITIONS ===== */
 @font-face {
     font-family: "Freepixel";
     src: url("./assets/fonts/FreePixel.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "VCR OSD Mono";
+    font-family: "VCR";
     src: url("./assets/fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+    font-display: swap;
 }
 
+@font-face {
+    font-family: "Chicago";
+    src: url("./assets/fonts/ChicagoFLF.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fixedsys";
+    src: url("./assets/fonts/Fixedsys62.ttf") format("truetype");
+    font-display: swap;
+}
+
+.window-content-inner {
+    contain: layout style paint;
+}
+
+/* ===== CSS VARIABLES ===== */
 :root {
     --background: #15191a;
     --main-color: #c6c4c3;
@@ -16,309 +36,132 @@
     --accent-2: #2d2723;
     --text-color: #f3f2f2;
     --link-color: #af492c;
-    --content-spacing: 5px;
+    --font-nav: "Fixedsys";
+    --font-title: "VCR";
+    --font-body: "Freepixel";
     --border: 1px solid black;
     --background-img: url("./assets/sprites/background.png");
-    --banner: url("./assets/sprites/banner.png");
     --titleBars: url("./assets/sprites/bar.png");
     --priorityBtn: url("./assets/sprites/priority.png");
     --closeBtn: url("./assets/sprites/close.png");
-    --shutdownBtn: url("./assets/sprites/shutdown.png");
 }
 
+/* ===== BASE STYLES ===== */
 html, body {
-    font-family: "FreePixel";
+    font-family: var(--font-body);
     color: var(--text-color);
     background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-.topbar {
-    background-image: var(--banner);
-    height: 150px;
+/* ===== NAVBAR STYLES ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-bottom: var(--content-spacing);
-    border: var(--border);
+    height: 80px;
+    background-color: var(--accent-2);
+    border-bottom: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10000;
+    font-family: "Chicago";
+    box-sizing: border-box;
 }
 
-.topbar img {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-}
-/* Start Menu */
-/* Start Menu - Fixed at top left */
-/* Start Menu - Fixed at top left */
-#startMain {
-    background-image: var(--background-img);
+header::before {
+    content: '';
     position: absolute;
-    left: 0px;
-    top: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
-    margin: 0;
+    height: 100%;
+    background-image: var(--background-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transform: scaleY(-1);
+    z-index: -1;
 }
 
-#startBody {
+.navLeft, .navRight {
+    font-family: var(--font-title);
+    font-size: 20px;
     background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    width: 220px;
-    height: 200px;
-    resize: none;
-    overflow: hidden; /* Change to hidden to prevent scrollbars */
-    z-index: 1000;
+    color: var(--text-color);
+    margin: 0;
+    padding: 10px;
+    font-weight: 200;
+    flex-shrink: 0;
 }
 
-/* Start Menu Header - Prevent text wrapping */
-#startBodyHeader {
-    background-image: var(--titleBars);
-    background-color: var(--accent-2);
-    box-sizing: border-box;
-    border: var(--border);
-    width: 100%;
-    height: 25px;
-    flex-shrink: 0;
-    font-size: 16px;
-    color: var(--text-color);
-    font-weight: bold;
-    padding: 0 8px;
+.navBar {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: default;
-    /* ADD THESE LINES TO PREVENT WRAPPING */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+}
+
+.navLinks {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.navLinks a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: var(--border);
+    background-color: var(--background);
+    transition: background-color 0.2s ease;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.user {
-    flex-grow: 1;
-    text-align: left;
-    line-height: 25px;
-    /* ADD THESE LINES TO PREVENT WRAPPING */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.navLinks a:hover {
+    background-color: var(--accent-1);
 }
 
-.shutdown-btn {
-    background: var(--shutdownBtn) no-repeat center;
-}
-
-/* Start Menu Rows - Equal height based on header */
-#startBodyRaw1, #startBodyRaw2, #startBodyRaw3 {
-    font-family: "Freepixel";
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    border: var(--border);
-    border-top: none;
-    width: 100%;
-    height: 25px; /* Same height as header */
-    flex-shrink: 0; /* Prevent growing/shrinking */
-    padding: 0 0.5em;
-    margin: 0;
-    position: relative;
-}
-
-/* Start Menu Text Styles */
-#startBodyRaw1 p, #startBodyRaw2 p, #startBodyRaw3 p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 25px; /* Match container height */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Arrow design for menu items */
-.menu-arrow {
-    content: ">";
-    font-size: 12px;
-    color: var(--link-color);
-    margin-left: auto;
-    padding-left: 10px;
-}
-
-/* Alternative: Using pseudo-element for arrow */
-#startBodyRaw1 p::after,
-#startBodyRaw2 p::after,
-#startBodyRaw3 p::after {
-    content: ">";
-    font-size: 12px;
-    color: var(--link-color);
-    margin-left: auto;
-    padding-left: 10px;
-}
-
-/* Hover effects for menu rows */
-#startBodyRaw1:hover, #startBodyRaw2:hover, #startBodyRaw3:hover {
-    background-color: var(--accent-2);
-    cursor: pointer;
-}
-
-/* Submenu Window Styles */
-.submenu-window {
-    background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    width: 200px;
-    resize: none;
-    overflow: hidden;
-    z-index: 1001; /* Higher than start menu */
-    border: var(--border);
-}
-
-.submenu-header {
-    background-image: var(--titleBars);
-    background-color: var(--accent-2);
-    box-sizing: border-box;
-    border-bottom: var(--border);
-    width: 100%;
-    height: 25px;
-    flex-shrink: 0;
-    font-size: 16px;
-    color: var(--text-color);
-    font-weight: bold;
-    padding: 0 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: default;
-}
-
-.submenu-title {
-    flex-grow: 1;
-    text-align: left;
-    line-height: 25px;
-}
-
-.submenu-row {
-    font-family: "Freepixel";
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    border-bottom: var(--border);
-    width: 100%;
-    height: 25px;
-    flex-shrink: 0;
-    padding: 0 0.5em;
-    margin: 0;
-    position: relative;
-}
-
-.submenu-row:last-child {
-    border-bottom: none;
-}
-
-.submenu-row p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 25px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.submenu-row:hover {
-    background-color: var(--accent-2);
-    cursor: pointer;
-}
-
-/* Adjust start body height based on number of rows */
-#startBody {
-    background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    width: 220px;
-    height: calc(25px + (25px * 3)); /* Header + 3 rows */
-    resize: none;
-    overflow: hidden;
-    z-index: 1000;
-}
-
-/* Add active state for clicked row */
-#startBodyRaw1.active {
-    background-color: var(--link-color);
-}
-
-#startBodyRaw1.active p {
-    color: var(--text-color);
-}
-
-/* Submenu Window Styles - Keep existing plus add pointer */
-.submenu-window {
-    background-color: var(--background);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    width: 200px;
-    resize: none;
-    overflow: hidden;
-    z-index: 1001;
-    border: var(--border);
-    cursor: default; /* Prevent text selection cursor */
-}
-
-/* Remove the old raw styles and replace with the ones above */
-
-/* Add this to your CSS */
-.window {
-    /* This class will be used for z-index management */
-}
-
-#startBody, #contBody {
-    z-index: 1;
-}
-
-.window.front {
-    z-index: 100;
-}
-
-/* About Me Section */
+/* ===== MAIN CONTAINER ===== */
 #contMain {
     background-image: var(--background-img);
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: auto; /* Height locked to viewport, width scales automatically */
-    background-attachment: fixed;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
 }
 
-#contBody {
+/* ===== WINDOW SYSTEM ===== */
+.window {
     background-color: var(--background);
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 200px;
-    top: 150px;
-    width: 800px;
-    height: 600px;
     resize: both;
-    overflow: auto;
+    overflow: hidden;
+    border: var(--border);
 }
 
-#contBodyHeader {
+.window-header {
     background-image: var(--titleBars);
     background-color: var(--accent-2);
-    box-sizing: border-box;
-    border: var(--border);
+    border-bottom: var(--border);
     width: 100%;
     height: 25px;
     flex-shrink: 0;
@@ -326,88 +169,110 @@ html, body {
     color: var(--text-color);
     font-weight: bold;
     padding: 0 8px;
+    display: grid;
+    grid-template-columns: 16px 1fr 16px;
+    align-items: center;
+    gap: 8px;
+    cursor: move;
+    box-sizing: border-box;
+}
+
+.window-content {
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+}
+
+.window-content-inner {
+    height: 100%;
+    overflow: hidden;
+    padding: 1.5em;
+    box-sizing: border-box;
+}
+
+.priority-btn, .close-btn {
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: var(--border);
+    background-color: var(--accent-1);
+    cursor: pointer;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribute space between buttons and title */
+    justify-content: center;
+    box-sizing: border-box;
 }
 
-.title-btn {
-    width: 15px;
-    height: 15px;
-    border: var(--border);
-    cursor: pointer;
-    flex-shrink: 0; /* Prevent buttons from shrinking */
+.priority-btn {
+    background-image: var(--priorityBtn);
 }
 
-.title-btn:hover {
-    background-color: var(--main-color-dk);
+.close-btn {
+    background-image: var(--closeBtn);
+    color: transparent;
+    font-size: 0;
 }
 
-.title-btn:active {
-    background-color: var(--accent-1);
+.priority-btn:hover, .close-btn:hover {
+    background-color: var(--link-color);
 }
 
 .title-text {
-    flex-grow: 1;
+    font-family: var(--font-nav);
     text-align: center;
+    font-weight: normal;
     line-height: 25px;
+    text-shadow: 0 0 1px var(--text-color);
 }
 
-.left-btn {
-    background: var(--priorityBtn) no-repeat center;
-}
-
-.right-btn {
-    background: var(--closeBtn) no-repeat center;
-}
-
-#contBodyRaw1, #contBodyRaw2, #contBodyRaw3 {
-    font-family: "Freepixel";
-    display: block;
-    flex-direction: row;
-    box-sizing: border-box;
+/* ===== WINDOW BOUNDARIES ===== */
+.window {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    resize: both;
+    overflow: hidden;
     border: var(--border);
-    width: 100%;
-    height: 100%;
-    flex: 1;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    /* Prevent overlapping navbar */
+    min-height: 200px; /* Ensure window doesn't get too small */
 }
 
+/* ===== CONTENT STYLES ===== */
 #welcome {
-    font-family: "VCR OSD Mono";
-    font-size: 36px;
+    font-family: var(--font-title);
+    font-size: 50px;
     font-weight: 1600;
-}
-
-#who {
-    margin-top: -16px;
-    font-weight: 600;
-}
-
-.subheader {
-    font-size: 25px;
-    font-weight: 600;
+    margin-top: 0;
     margin-bottom: 0;
 }
 
-.content {
-    font-size: 18px;
+#who {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
-.content > div {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 25px;
+.subheader {
+    font-size: 35px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.content p {
+    font-size: 22px;
 }
 
 .content-row {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     gap: 25px;
     width: 100%;
+    margin-top: -16px;
 }
 
 .text-column {
@@ -415,31 +280,28 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    min-width: 0; /* Important for text wrapping */
 }
 
 .image-column {
     flex-shrink: 0;
-    width: 235px;
+    width: 285px;
 }
 
 .text-column p {
     margin: 0;
     line-height: 1.5;
-    width: 100%; /* Ensure paragraphs take full width */
 }
 
 .interests-list {
     margin: 0;
     padding-left: 45px;
     list-style-type: none;
-    width: 100%; /* Ensure list takes full width */
 }
 
 .interests-list li {
     position: relative;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .interests-list li::before {
@@ -450,6 +312,11 @@ html, body {
     font-weight: bold;
 }
 
+.contact-list p {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
 .image-figure {
     margin: 0;
     display: flex;
@@ -458,29 +325,21 @@ html, body {
 }
 
 #me {
-    width: 230px;
-    height: 230px;
+    width: 280px;
+    height: 280px;
     border: var(--border);
+    object-fit: cover;
+    image-rendering: crisp-edges;
 }
 
 figcaption {
-    font-family: "Freepixel";
+    font-family: var(--font-body);
     font-size: 12px;
     color: var(--text-color);
     text-align: center;
     font-style: italic;
     margin-top: 8px;
-    width: 100%;
-}
-
-.contact-list {
-    list-style-type: none;
-}
-
-.contact-list p {
-    position: relative;
-    margin-bottom: 8px;
-    font-size: 16px;
+    margin-bottom: 12px;
 }
 
 .contact-list a {
@@ -492,201 +351,140 @@ figcaption {
     height: 16px;
     vertical-align: text-bottom;
     position: relative;
-    padding-left: 25px;
-    top: -0.5px;
+    top: -3.5px;
     margin-right: 4px;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablets (768px and below) */
-@media (max-width: 1024px) {
-    #contMain {
-        background-size: cover;
-        background-position: top center; /* Keep top alignment even when covering */
-    }
+/* ===== EDUCATION LAYOUT - NUCLEAR OPTION ===== */
+.education-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
 }
 
+.education-row {
+    display: flex !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+.education-row .education-item {
+    flex: 1 !important;
+    width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+}
+
+.education-item {
+    border: var(--border);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box !important;
+}
+
+.education-item.college {
+    border-left: 4px solid var(--link-color);
+    background-color: rgba(175, 73, 44, 0.1);
+    min-height: 160px;
+    width: calc(100% - 3em) !important; /* Account for window-content-inner padding */
+    margin: 0 auto !important; /* Center it within the padded container */
+    flex: none !important;
+    box-sizing: border-box !important;
+}
+
+.education-item h4 {
+    margin: 0 0 10px 0;
+    color: var(--link-color);
+    font-size: 24px;
+}
+
+.education-item .degree {
+    font-size: 22px;
+    margin: 5px 0;
+}
+
+.education-item .duration {
+    font-size: 18px;
+    color: var(--main-color-dk);
+    margin: 5px 0;
+    font-style: italic;
+}
+
+.education-item .achievement,
+.education-item .status {
+    font-size: 16px;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-left: 2px solid var(--accent-1);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    #contBody {
-        left: 50px !important;
-        top: 100px !important;
-        width: 85vw !important;
-        /* REMOVE height changes - keep original behavior */
-        max-width: 600px;
-        /* REMOVE max-height: 500px; */
+    header {
+        padding: 0 10px;
     }
     
-    .content-row {
-        flex-direction: column !important;
-        gap: 20px;
-    }
-    
-    .image-column {
-        width: 100% !important;
-        text-align: center;
-    }
-    
-    #me {
-        width: 180px !important;
-        height: 180px !important;
-    }
-    
-    .text-column p {
-        font-size: 16px;
-    }
-    
-    #welcome {
-        font-size: 28px !important;
-    }
-    
-    .subheader {
-        font-size: 22px !important;
-    }
-}
-
-/* Phones (480px and below) */
-@media (max-width: 480px) {
-    #contBody {
-        left: 20px !important;
-        top: 80px !important;
-        width: 90vw !important;
-        /* REMOVE height changes - keep original behavior */
-        max-width: none;
-        /* REMOVE max-height: none; */
-    }
-    
-    #contBodyRaw1 {
-        padding-left: 1em !important;
-        padding-right: 1em !important;
-    }
-    
-    .content > div {
-        flex-direction: column !important;
+    .navLinks {
         gap: 15px;
     }
     
-    #me {
-        width: 150px !important;
-        height: 150px !important;
-    }
-    
-    #welcome {
-        font-size: 24px !important;
-    }
-    
-    #who {
-        font-size: 14px !important;
-        margin-top: -12px !important;
-    }
-    
-    .subheader {
-        font-size: 20px !important;
-    }
-    
-    .content {
-        font-size: 16px !important;
-    }
-    
-    .text-column p {
-        font-size: 14px;
-        line-height: 1.4;
-    }
-    
-    .interests-list {
-        padding-left: 30px !important;
-    }
-    
-    .interests-list li {
+    .navLinks a {
+        padding: 6px 10px;
         font-size: 14px;
     }
     
-    .contact-list p {
-        font-size: 14px;
-    }
-    
-    .dev-tag {
-        width: 14px;
-        height: 14px;
+    .navLeft, .navRight {
+        font-size: 16px;
+        padding: 8px;
     }
 }
 
-/* Large Phones (481px to 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    #contBody {
-        left: 30px !important;
-        top: 90px !important;
-        width: 88vw !important;
-        /* REMOVE height changes - keep original behavior */
-    }
-    
-    #me {
-        width: 160px !important;
-        height: 160px !important;
-    }
-    
-    #welcome {
-        font-size: 26px !important;
-    }
-}
-
-/* Small Tablets (769px to 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-    #contBody {
-        left: 100px !important;
-        top: 120px !important;
-        width: 80vw !important;
-        /* REMOVE height changes - keep original behavior */
-    }
-}
-
-/* Start Menu Responsive */
 @media (max-width: 480px) {
-    #startBody {
-        width: 180px !important;
-        height: calc(25px + (25px * 3)) !important;
+    .navLeft, .navRight {
+        display: none;
     }
     
-    .submenu-window {
-        width: 160px !important;
+    .navBar {
+        position: static;
+        transform: none;
+        margin: 0 auto;
     }
     
-    .user {
-        font-size: 14px;
+    header {
+        justify-content: center;
     }
 }
 
-/* Ensure the start menu stays usable on mobile */
-@media (max-width: 768px) {
-    #startBody {
-        z-index: 1000 !important;
-    }
-    
-    .submenu-window {
-        z-index: 1001 !important;
+/* ===== SMART RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 1400px) {
+    .window {
+        /* Scale down content proportionally */
+        transform: scale(0.9);
+        /* Ensure it stays centered and visible */
+        left: 50% !important;
+        top: 55% !important;
+        transform: translate(-50%, -50%) scale(0.9);
     }
 }
 
-/* Touch device improvements */
-@media (hover: none) and (pointer: coarse) {
-    .title-btn {
-        min-width: 20px;
-        min-height: 20px;
+@media (max-width: 1024px) {
+    .window {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+/* Emergency fallback for very small screens */
+@media (max-width: 480px) and (max-height: 700px) {
+    .window {
+        transform: translate(-50%, -50%) scale(0.6);
+        /* Allow scrolling if absolutely necessary */
+        overflow: auto !important;
     }
     
-    #startBodyRaw1:hover, 
-    #startBodyRaw2:hover, 
-    #startBodyRaw3:hover,
-    .submenu-row:hover {
-        background-color: transparent;
-    }
-    
-    #startBodyRaw1:active, 
-    #startBodyRaw2:active, 
-    #startBodyRaw3:active,
-    .submenu-row:active {
-        background-color: var(--accent-2);
+    .window-content {
+        overflow: auto !important;
     }
 }
