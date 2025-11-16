@@ -467,7 +467,7 @@ figcaption {
     .window {
         transform: scale(0.85);
         left: 50% !important;
-        top: 65px !important; /* Just 5px below navbar (60px + 5px gap) */
+        top: 62px !important; /* Closer to navbar (60px + 2px gap) */
         transform: translate(-50%, 0) scale(0.85);
     }
 }
@@ -476,7 +476,7 @@ figcaption {
     .window {
         transform: scale(0.75);
         left: 50% !important;
-        top: 65px !important;
+        top: 62px !important;
         transform: translate(-50%, 0) scale(0.75);
     }
 }
@@ -485,7 +485,7 @@ figcaption {
     .window {
         transform: scale(0.65);
         left: 50% !important;
-        top: 65px !important;
+        top: 62px !important;
         transform: translate(-50%, 0) scale(0.65);
     }
 }
@@ -494,7 +494,7 @@ figcaption {
     .window {
         transform: scale(0.6);
         left: 50% !important;
-        top: 65px !important;
+        top: 62px !important;
         transform: translate(-50%, 0) scale(0.6);
     }
 }
@@ -503,7 +503,7 @@ figcaption {
     .window {
         transform: scale(0.55);
         left: 50% !important;
-        top: 65px !important;
+        top: 62px !important;
         transform: translate(-50%, 0) scale(0.55);
     }
 }
@@ -512,7 +512,7 @@ figcaption {
     .window {
         transform: scale(0.5);
         left: 50% !important;
-        top: 65px !important;
+        top: 62px !important;
         transform: translate(-50%, 0) scale(0.5);
     }
 }
@@ -522,7 +522,7 @@ figcaption {
     .window {
         transform: scale(0.45);
         left: 50% !important;
-        top: 62px !important; /* Almost touching navbar (2px gap) */
+        top: 60px !important; /* Almost touching navbar */
         transform: translate(-50%, 0) scale(0.45);
         overflow: auto !important;
     }
@@ -532,29 +532,24 @@ figcaption {
     }
 }
 
-/* Specific fix for iPad 1024x768 */
-@media (width: 1024px) and (height: 768px) {
+/* Specific laptop fixes - but keep it close to navbar */
+@media (width: 1920px) and (height: 1080px) {
     .window {
-        transform: scale(0.6);
-        left: 50% !important;
-        top: 65px !important;
-        transform: translate(-50%, 0) scale(0.6);
+        transform: scale(0.95); /* Slightly smaller to prevent cropping */
+        top: 62px !important; /* Still close to navbar */
     }
 }
 
-/* Specific fix for 1024x600 screens */
-@media (width: 1024px) and (height: 600px) {
+@media (width: 1366px) and (height: 768px) {
     .window {
-        transform: scale(0.55);
-        left: 50% !important;
-        top: 62px !important; /* Very close on short screens */
-        transform: translate(-50%, 0) scale(0.55);
+        transform: scale(0.75); /* Smaller scaling to fit */
+        top: 62px !important; /* Close to navbar */
     }
 }
 
-/* For very large screens - position even closer */
-@media (min-width: 1600px) {
+/* Make window smaller instead of moving it down */
+@media (min-width: 1024px) {
     .window {
-        top: 62px !important; /* Closer on big screens */
+        top: 62px !important; /* Always close to navbar */
     }
 }
