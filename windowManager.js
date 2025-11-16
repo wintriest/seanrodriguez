@@ -81,7 +81,7 @@ class WindowManager {
                                 <li>Cybersecurity;</li>
                                 <li>Operating Systems.</li>
                             </ul>
-                            <p>I enjoy understanding how systems work at a low level and see how everything comes to be.</p>
+                            <p>I enjoy understanding how systems work at a low level and seeing how everything comes to be.</p>
                         </div>
                         <div class="image-column">
                             <figure class="image-figure">
