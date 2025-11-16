@@ -85,7 +85,7 @@ class WindowManager {
                         </div>
                         <div class="image-column">
                             <figure class="image-figure">
-                                <img id="me" src="/assets/sprites/seanRodriguez.jpg" alt="Sean Rodriguez">
+                                <img id="me" src="/assets/sprites/seanRodriguez.jpg?v=2" alt="Sean Rodriguez">
                                 <figcaption><b>Figure 1:</b> Me, November 2025</figcaption>
                             </figure>
                         </div>
