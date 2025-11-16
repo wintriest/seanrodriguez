@@ -472,6 +472,7 @@ figcaption {
 
 @media (max-width: 1024px) {
     .window {
+        top: 50% !important;
         transform: translate(-50%, -50%) scale(0.8);
     }
 }
