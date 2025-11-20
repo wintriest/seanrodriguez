@@ -106,7 +106,7 @@ main, .section {
 		transform: scale(0.74);
 		transform-origin: center top;
 	}
-	.education-cards, .achievements-container {
+	.education-cards {
 		transform: scale(0.74);
 		transform-origin: center top;
 	}
@@ -114,7 +114,10 @@ main, .section {
 		flex: 0 0 auto;
 	}
 	.achievements-container {
+		transform: scale(0.74);
+		transform-origin: center top;
 		flex-direction: column;
+		max-height: calc(100vh - 56px);
 	}
 	.achievement-category {
 		width: 100%;
@@ -129,7 +132,7 @@ main, .section {
 		transform: scale(0.71);
 		transform-origin: center top;
 	}
-	.education-cards, .achievements-container {
+	.education-cards {
 		transform: scale(0.71);
 		transform-origin: center top;
 	}
@@ -137,7 +140,10 @@ main, .section {
 		flex: 0 0 auto;
 	}
 	.achievements-container {
+		transform: scale(0.71);
+		transform-origin: center top;
 		flex-direction: column;
+		max-height: calc(100vh - 56px);
 	}
 	.achievement-category {
 		width: 100%;
@@ -152,7 +158,7 @@ main, .section {
 		transform: scale(0.68);
 		transform-origin: center top;
 	}
-	.education-cards, .achievements-container {
+	.education-cards {
 		transform: scale(0.68);
 		transform-origin: center top;
 	}
@@ -160,7 +166,10 @@ main, .section {
 		flex: 0 0 auto;
 	}
 	.achievements-container {
+		transform: scale(0.68);
+		transform-origin: center top;
 		flex-direction: column;
+		max-height: calc(100vh - 56px);
 	}
 	.achievement-category {
 		width: 100%;
@@ -181,6 +190,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.65);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -210,6 +221,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.62);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -239,6 +252,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.59);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -268,6 +283,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.56);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -307,6 +324,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.53);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -346,6 +365,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.5);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -385,6 +406,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.47);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -424,6 +447,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.44);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -463,6 +488,8 @@ main, .section {
 		align-items: center;
 		transform: scale(0.41);
 		transform-origin: center top;
+		max-height: calc(100vh - 56px);
+		padding: 1.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -492,8 +519,13 @@ main, .section {
 
 /* Ultra-wide aspect ratio (16:9 landscape) - reduce further if low height */
 @media (min-aspect-ratio: 16/9) and (max-height: 600px) {
-	.about-container, .education-cards, .achievements-container {
+	.about-container, .education-cards {
 		transform: scale(0.7) !important;
+	}
+	.achievements-container {
+		transform: scale(0.7) !important;
+		flex-direction: column;
+		max-height: calc(100vh - 48px);
 	}
 	nav {
 		height: 48px;
@@ -524,8 +556,13 @@ main, .section {
 		margin-top: 44px;
 		height: calc(100vh - 44px);
 	}
-	.about-container, .education-cards, .achievements-container {
+	.about-container, .education-cards {
 		transform: scale(0.60) !important;
+	}
+	.achievements-container {
+		transform: scale(0.60) !important;
+		flex-direction: column;
+		max-height: calc(100vh - 44px);
 	}
 }
 .achievements-cards {
@@ -562,20 +599,43 @@ main, .section {
 	display: flex;
 	gap: 2rem;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	width: 100%;
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 1.5rem 1rem;
-	flex-wrap: nowrap;
+	padding: 2rem 1rem;
+	flex-wrap: wrap;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	max-height: calc(100vh - 56px);
+}
+
+.achievements-container::-webkit-scrollbar {
+	width: 6px;
+}
+
+.achievements-container::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.achievements-container::-webkit-scrollbar-thumb {
+	background: rgba(186, 155, 124, 0.3);
+	border-radius: 3px;
+}
+
+.achievements-container::-webkit-scrollbar-thumb:hover {
+	background: rgba(186, 155, 124, 0.5);
 }
 .achievement-category {
-	flex: 0 1 auto;
+	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-	width: 420px;
+	width: 100%;
+	min-width: 300px;
+	max-width: 500px;
 }
 .category-title {
 	font-size: 1.8rem;
@@ -664,11 +724,32 @@ main, .section {
 	flex-wrap: wrap;
 	gap: 2.5rem 3.5rem;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	width: 100%;
 	max-width: 1100px;
 	margin: 0 auto;
-	padding: 2.5rem 0;
+	padding: 2.5rem 1rem;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	max-height: calc(100vh - 56px);
+}
+
+.education-cards::-webkit-scrollbar {
+	width: 6px;
+}
+
+.education-cards::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.education-cards::-webkit-scrollbar-thumb {
+	background: rgba(186, 155, 124, 0.3);
+	border-radius: 3px;
+}
+
+.education-cards::-webkit-scrollbar-thumb:hover {
+	background: rgba(186, 155, 124, 0.5);
 }
 .edu-card {
 	background: var(--card-bg);
@@ -939,15 +1020,22 @@ html, body {
 
 .section {
 	display: none;
-	height: calc(100vh - 56px);
+	min-height: calc(100vh - 56px);
+	max-height: calc(100vh - 56px);
 	width: 100vw;
 	box-sizing: border-box;
 	justify-content: center;
 	align-items: center;
 	opacity: 0;
 	transition: opacity 0.4s ease-in-out;
+	overflow: hidden;
 }
 .section.active {
 	display: flex;
 	opacity: 1;
+}
+
+#achievements.section.active {
+	align-items: flex-start;
+	padding-top: 1rem;
 }
