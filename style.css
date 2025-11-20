@@ -228,6 +228,31 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1.5rem 1rem;
+	}
+	.school-logo {
+		width: 56px;
+		height: 56px;
+		margin-bottom: 0.3rem;
+	}
+	.edu-info h2 {
+		font-size: 1rem;
+		margin-bottom: 0.3rem;
+	}
+	.edu-info p {
+		font-size: 0.85rem;
+		margin-bottom: 0.2rem;
+	}
+	.achievement-card {
+		padding: 1rem 1.3rem;
+	}
+	.achievement-card h3 {
+		font-size: 1rem;
+		margin-bottom: 0.1rem;
+	}
+	.achievement-card p {
+		font-size: 0.8rem;
+		margin-bottom: 0.08rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -259,6 +284,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1.5rem 1rem;
+	}
+	.school-logo {
+		width: 54px;
+		height: 54px;
+	}
+	.edu-info h2 {
+		font-size: 1rem;
+	}
+	.edu-info p {
+		font-size: 0.85rem;
+	}
+	.achievement-card {
+		padding: 1rem 1.2rem;
+	}
+	.achievement-card h3 {
+		font-size: 1rem;
+	}
+	.achievement-card p {
+		font-size: 0.8rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -290,6 +335,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1.4rem 0.9rem;
+	}
+	.school-logo {
+		width: 52px;
+		height: 52px;
+	}
+	.edu-info h2 {
+		font-size: 1rem;
+	}
+	.edu-info p {
+		font-size: 0.8rem;
+	}
+	.achievement-card {
+		padding: 0.9rem 1.1rem;
+	}
+	.achievement-card h3 {
+		font-size: 0.95rem;
+	}
+	.achievement-card p {
+		font-size: 0.78rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -331,6 +396,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1.3rem 0.8rem;
+	}
+	.school-logo {
+		width: 50px;
+		height: 50px;
+	}
+	.edu-info h2 {
+		font-size: 0.95rem;
+	}
+	.edu-info p {
+		font-size: 0.8rem;
+	}
+	.achievement-card {
+		padding: 0.9rem 1rem;
+	}
+	.achievement-card h3 {
+		font-size: 0.9rem;
+	}
+	.achievement-card p {
+		font-size: 0.75rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -372,6 +457,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1.2rem 0.7rem;
+	}
+	.school-logo {
+		width: 48px;
+		height: 48px;
+	}
+	.edu-info h2 {
+		font-size: 0.9rem;
+	}
+	.edu-info p {
+		font-size: 0.75rem;
+	}
+	.achievement-card {
+		padding: 0.8rem 1rem;
+	}
+	.achievement-card h3 {
+		font-size: 0.85rem;
+	}
+	.achievement-card p {
+		font-size: 0.72rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -413,6 +518,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1.1rem 0.6rem;
+	}
+	.school-logo {
+		width: 46px;
+		height: 46px;
+	}
+	.edu-info h2 {
+		font-size: 0.9rem;
+	}
+	.edu-info p {
+		font-size: 0.73rem;
+	}
+	.achievement-card {
+		padding: 0.8rem 0.9rem;
+	}
+	.achievement-card h3 {
+		font-size: 0.8rem;
+	}
+	.achievement-card p {
+		font-size: 0.7rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -454,6 +579,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 1rem 0.5rem;
+	}
+	.school-logo {
+		width: 44px;
+		height: 44px;
+	}
+	.edu-info h2 {
+		font-size: 0.85rem;
+	}
+	.edu-info p {
+		font-size: 0.7rem;
+	}
+	.achievement-card {
+		padding: 0.7rem 0.8rem;
+	}
+	.achievement-card h3 {
+		font-size: 0.75rem;
+	}
+	.achievement-card p {
+		font-size: 0.65rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -495,6 +640,26 @@ main, .section {
 		width: 90vw;
 		min-width: 90vw;
 		max-width: 90vw;
+		padding: 0.9rem 0.4rem;
+	}
+	.school-logo {
+		width: 42px;
+		height: 42px;
+	}
+	.edu-info h2 {
+		font-size: 0.8rem;
+	}
+	.edu-info p {
+		font-size: 0.68rem;
+	}
+	.achievement-card {
+		padding: 0.6rem 0.7rem;
+	}
+	.achievement-card h3 {
+		font-size: 0.7rem;
+	}
+	.achievement-card p {
+		font-size: 0.6rem;
 	}
 	.achievements-container {
 		flex-direction: column;
@@ -755,12 +920,12 @@ main, .section {
 	background: var(--card-bg);
 	border-radius: 16px;
 	box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-	padding: 2.2rem 1.5rem;
+	padding: 2rem 1.5rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-width: 300px;
-	max-width: 420px;
+	min-width: 320px;
+	max-width: 450px;
 	gap: 1.2rem;
 	border: 1px solid rgba(186,155,124,0.1);
 	transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
