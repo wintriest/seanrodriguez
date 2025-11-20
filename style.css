@@ -222,7 +222,7 @@ main, .section {
 		transform: scale(0.62);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 1.2rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -258,6 +258,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.62);
 		transform-origin: center top;
+		padding: 0.8rem 0.5rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -278,7 +279,7 @@ main, .section {
 		transform: scale(0.59);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 1.1rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -309,6 +310,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.59);
 		transform-origin: center top;
+		padding: 0.7rem 0.5rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -329,7 +331,7 @@ main, .section {
 		transform: scale(0.56);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 1rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -360,6 +362,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.56);
 		transform-origin: center top;
+		padding: 0.6rem 0.4rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -390,7 +393,7 @@ main, .section {
 		transform: scale(0.53);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 0.9rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -421,6 +424,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.53);
 		transform-origin: center top;
+		padding: 0.5rem 0.3rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -451,7 +455,7 @@ main, .section {
 		transform: scale(0.5);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 0.8rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -482,6 +486,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.5);
 		transform-origin: center top;
+		padding: 0.4rem 0.3rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -512,7 +517,7 @@ main, .section {
 		transform: scale(0.47);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 0.7rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -543,6 +548,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.47);
 		transform-origin: center top;
+		padding: 0.3rem 0.2rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -573,7 +579,7 @@ main, .section {
 		transform: scale(0.44);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 0.6rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -604,6 +610,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.44);
 		transform-origin: center top;
+		padding: 0.25rem 0.2rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -634,7 +641,7 @@ main, .section {
 		transform: scale(0.41);
 		transform-origin: center top;
 		max-height: calc(100vh - 56px);
-		padding: 1.5rem 0.5rem;
+		padding: 0.5rem 0.5rem;
 	}
 	.edu-card {
 		width: 90vw;
@@ -665,6 +672,7 @@ main, .section {
 		flex-direction: column;
 		transform: scale(0.41);
 		transform-origin: center top;
+		padding: 0.15rem 0.1rem;
 	}
 	.achievement-category {
 		width: 100%;
@@ -768,7 +776,7 @@ main, .section {
 	width: 100%;
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 2rem 1rem;
+	padding: 1.2rem 1rem;
 	flex-wrap: wrap;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -1202,5 +1210,5 @@ html, body {
 
 #achievements.section.active {
 	align-items: flex-start;
-	padding-top: 1rem;
+	padding-top: 0.5rem;
 }
