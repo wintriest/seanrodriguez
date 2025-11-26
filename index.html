@@ -14,6 +14,8 @@
 			<li class="active" id="nav-about">About Me</li>
 			<li id="nav-education">Educational Attainment</li>
 			<li id="nav-achievements">Achievements</li>
+			<li id="nav-family">My Family</li>
+			<li id="nav-batchmates">My Batchmates</li>
 		</ul>
 	</nav>
 	<main>
@@ -71,82 +73,236 @@
 			</div>
 		</section>
 		<section id="achievements" class="section">
-			<div class="achievements-container">
-			<div class="achievement-category">
-				<h2 class="category-title">Curricular Achievements</h2>
-				<div class="achievement-cards">
-						<div class="achievement-card">
+			<div class="achievements-layout">
+				<!-- Left: Curricular Achievements -->
+				<div class="achievement-column curricular-column">
+					<h2 class="category-title">Curricular Achievements</h2>
+					<div class="achievement-cards-vertical">
+						<div class="achievement-card" data-image="./assets/achievement-1.jpg">
 							<h3>Academic Honors</h3>
 							<p>Salutatorian SHS Graduate</p>
 							<p>With High Honors</p>
-                            <p class="date">2023 - 2025</p>
-                            <p>With Honors</p>
-                            <p class="date">2013 - 2025</p>
+							<p class="date">2023 - 2025</p>
+							<p>With Honors</p>
+							<p class="date">2013 - 2025</p>
 						</div>
-                        <div class="achievement-card">
-							<h3>Excellence in Work Immersion</h3>
-                            <p class="date">2024 - 2025</p>
-							<p>Best in Work Immersion Portfolio</p>
-                            <p>Best in Work Immersion</p>
-						</div>
-                        <div class="achievement-card">
-							<h3>Academic Excellence in Research</h3>
-                            <p class="date">2024 - 2025</p>
-							<p>Researcher of the Year</p>
-                            <p>Best Research Presenter</p>
-                            <p>Best in Research Manuscript</p>
-                            <p>Best Technical Report</p>
+						<div class="achievement-card" data-image="./assets/achievement-2.jpg">
+							<h3>Excellence in Work Immersion & Research</h3>
+							<div class="sub-achievement">
+								<h4>Work Immersion</h4>
+								<p class="date">2024 - 2025</p>
+								<p>Best in Work Immersion Portfolio</p>
+								<p>Best in Work Immersion</p>
+							</div>
+							<div class="sub-achievement">
+								<h4>Research</h4>
+								<p class="date">2024 - 2025</p>
+								<p>Researcher of the Year</p>
+								<p>Best Research Presenter</p>
+								<p>Best in Research Manuscript</p>
+								<p>Best Technical Report</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			<div class="achievement-category">
-				<h2 class="category-title">Extracurricular Achievements</h2>
-				<div class="achievement-cards">
-                        <div class="achievement-card">
+
+				<!-- Middle: Photo Display -->
+				<div class="achievement-photo-center">
+					<img id="achievement-display-photo" src="" alt="Achievement Photo" class="achievement-display-photo">
+				</div>
+
+				<!-- Right: Extracurricular Achievements -->
+				<div class="achievement-column extracurricular-column">
+					<h2 class="category-title">Extracurricular Achievements</h2>
+					<div class="achievement-cards-vertical">
+						<div class="achievement-card" data-image="./assets/achievement-3.jpg">
 							<h3>Seminar Workshop on Journalism</h3>
-                            <p class="date">December 8 - 10, 2023</p>
+							<p class="date">December 8 - 10, 2023</p>
 							<p>Best in Feature Writing</p>
-                            <p>Best in Column Writing</p>
-                            <p>2nd in Opinion Writing</p>
+							<p>Best in Column Writing</p>
+							<p>2nd in Opinion Writing</p>
 						</div>
-						<div class="achievement-card">
+						<div class="achievement-card" data-image="./assets/achievement-4.jpg">
 							<h3>7th Leadership Development Program</h3>
-                            <p class="date">February 8 - 11, 2024</p>
+							<p class="date">February 8 - 11, 2024</p>
 							<p>LDP Pageant King</p>
-                            <p>LDP Champion 'Team Sobrevivientes'</p>
 						</div>
-						
-                        <div class="achievement-card">
+						<div class="achievement-card" data-image="./assets/achievement-5.jpg">
 							<h3>High School Ball</h3>
-                            <p class="date">March 24, 2024</p>
+							<p class="date">March 24, 2024</p>
 							<p>Head Turner</p>
 						</div>
-						<div class="achievement-card">
+						<div class="achievement-card" data-image="./assets/achievement-6.jpg">
 							<h3>UP NAMNAMA (Sirib ken Saririt)</h3>
 							<p class="date">March 2025</p>
-                            <p>Short Film Production Awardee</p>
-                            <p>3rd in Short Film Making 'Director'</p>
+							<p>Short Film Production Awardee</p>
+							<p>3rd in Short Film Making 'Director'</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+		<section id="family" class="section">
+			<div class="family-container">
+				<div class="family-card">
+					<img src="./assets/father.jpg" alt="Father" class="family-photo">
+					<h3>My Father</h3>
+					<p>The man I aspire to be like</p>
+				</div>
+				<div class="family-card">
+					<img src="./assets/mother.jpg" alt="Mother" class="family-photo">
+					<h3>My Mother</h3>
+					<p>Inspires and cares for me every day</p>
+				</div>
+				<div class="family-card">
+					<img src="./assets/siblings.jpeg" alt="Siblings" class="family-photo">
+					<h3>My Siblings</h3>
+					<p>My lifelong supporters</p>
+				</div>
+			</div>
+		</section>
+		<section id="batchmates" class="section">	
+			<div class="batchmates-container">
+				<div class="batchmates-photo">
+					<img src="./assets/batchmate.jpg" alt="Batchmates Group Photo" class="group-photo">
+				</div>
+				<div class="batchmates-list">
+					<div class="names-grid">
+						<div class="name-item">Abdulkader, Faisal</div>
+                <div class="name-item">Aben, Zeius</div>
+                <div class="name-item">Abuan, Cris Julian</div>
+                <div class="name-item">Agaled, Edezie</div>
+                <div class="name-item">Alay-ay, Paul Rayver</div>
+                <div class="name-item">Alcuizar, Justin</div>
+                <div class="name-item">Anaydos, Chezen</div>
+                <div class="name-item">Antonio, Blas Sebastian</div>
+                <div class="name-item">Antonio, Hart Hendricks</div>
+                <div class="name-item">Aspilan, Jochrisse</div>
+                <div class="name-item">Bayawa, Sarrick Mae</div>
+                <div class="name-item">Bugnosen, Jemimah</div>
+                <div class="name-item">Calimquim, Marianne Alexei</div>
+                <div class="name-item">Donato, Tom Iric</div>
+                <div class="name-item">Durante, Jacob</div>
+                <div class="name-item">Fajardo, Kathryn Beyonce</div>
+                <div class="name-item">Fajardo, Kathryz Beyonce</div>
+                <div class="name-item">Flores, Mary Angelyn</div>
+                <div class="name-item">Gapasin, Ken Cade</div>
+                <div class="name-item">Gonzales, Mharvinne Louisse</div>
+                <div class="name-item">Gualdo, Rojan Jules</div>
+                <div class="name-item">Guerrero, Dewey</div>
+                <div class="name-item">Keryao, Grace</div>
+                <div class="name-item">Lorilla, Ronald</div>
+                <div class="name-item">Lozano, Kyro Christopher</div>
+                <div class="name-item">Mahilum, Dhellmar</div>
+                <div class="name-item">Mendoza, Justine Khurt</div>
+                <div class="name-item">Napeñas, Lea</div>
+                <div class="name-item">Obongen, Gian Carlo</div>
+                <div class="name-item">Pagnas, Xhiro Chiyam</div>
+                <div class="name-item">Patiag, Jared Janwel</div>
+                <div class="name-item">Pocling, Tricia</div>
+                <div class="name-item">Ramos, Princess Reign</div>
+                <div class="name-item">Rodriguez, Harvey</div>
+                <div class="name-item">Rodriguez, Sean Vincent</div>
+                <div class="name-item">Santos, Kent Ser Francis</div>
+                <div class="name-item">Sevilla, Ronnel</div>
+                <div class="name-item">Silin, Clark Jonathan</div>
+                <div class="name-item">Ugaddan, Shaquil Hanz</div>
+                <div class="name-item">Vicente, Edison</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
+	<button class="nav-btn prev-btn" id="prev-btn">
+		Previous
+	</button>
+	<button class="nav-btn next-btn" id="next-btn">
+		Next
+	</button>
 	<script>
-		// Navigation logic
+		// Navigation logic - handle all sections including new Family and Batchmates
 		const navItems = document.querySelectorAll('nav ul li');
 		const sections = document.querySelectorAll('.section');
+		const prevBtn = document.getElementById('prev-btn');
+		const nextBtn = document.getElementById('next-btn');
+		let currentIndex = 0;
+
+		function updateActiveSection(idx) {
+			currentIndex = idx;
+			navItems.forEach((item, sidx) => {
+				if (sidx === idx) {
+					item.classList.add('active');
+				} else {
+					item.classList.remove('active');
+				}
+			});
+			sections.forEach((sec, sidx) => {
+				if (sidx === idx) {
+					sec.classList.add('active');
+				} else {
+					sec.classList.remove('active');
+				}
+			});
+			updateButtonVisibility();
+		}
+
+		function updateButtonVisibility() {
+			// Hide previous button on first section
+			prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+			// Hide next button on last section
+			nextBtn.style.display = currentIndex === sections.length - 1 ? 'none' : 'flex';
+		}
+
 		navItems.forEach((item, idx) => {
 			item.addEventListener('click', () => {
-				navItems.forEach(n => n.classList.remove('active'));
-				item.classList.add('active');
-				sections.forEach((sec, sidx) => {
-					if (idx === sidx) {
-						sec.classList.add('active');
-					} else {
-						sec.classList.remove('active');
-					}
-				});
+				updateActiveSection(idx);
+			});
+		});
+
+		// Previous button
+		prevBtn.addEventListener('click', () => {
+			if (currentIndex > 0) {
+				updateActiveSection(currentIndex - 1);
+			}
+		});
+
+		// Next button
+		nextBtn.addEventListener('click', () => {
+			if (currentIndex < sections.length - 1) {
+				updateActiveSection(currentIndex + 1);
+			}
+		});
+
+		// Initialize button visibility
+		updateButtonVisibility();
+
+		// Achievement photo display functionality
+		const achievementCards = document.querySelectorAll('.achievement-card');
+		const photoDisplay = document.getElementById('achievement-display-photo');
+
+		achievementCards.forEach(card => {
+			card.addEventListener('mouseenter', () => {
+				const imageSrc = card.getAttribute('data-image');
+				if (imageSrc) {
+					photoDisplay.src = imageSrc;
+					photoDisplay.classList.add('active');
+					card.classList.add('active');
+				}
+			});
+
+			card.addEventListener('mouseleave', () => {
+				photoDisplay.classList.remove('active');
+				card.classList.remove('active');
+			});
+
+			card.addEventListener('click', () => {
+				const imageSrc = card.getAttribute('data-image');
+				if (imageSrc) {
+					photoDisplay.src = imageSrc;
+					photoDisplay.classList.add('active');
+					achievementCards.forEach(c => c.classList.remove('active'));
+					card.classList.add('active');
+				}
 			});
 		});
 	</script>

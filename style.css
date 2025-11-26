@@ -859,7 +859,7 @@ main, .section {
 }
 .achievement-card h3 {
 	margin: 0;
-	margin-bottom: 0.2rem;
+	margin-bottom: 0.4rem;
 	color: var(--accent-color);
 	font-size: 1.2rem;
 	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
@@ -889,7 +889,7 @@ main, .section {
 	font-size: 0.85rem;
 	opacity: 0.75;
 	margin: 0;
-	margin-top: -0.4rem;
+	margin-top: -0.35rem;
 	margin-bottom: 0.25rem;
 }
 .education-cards {
@@ -1208,7 +1208,505 @@ html, body {
 	opacity: 1;
 }
 
+/* ===== NAVIGATION BUTTONS ===== */
+.nav-btn {
+	position: fixed;
+	bottom: 2rem;
+	padding: 0.7rem 1.5rem;
+	border-radius: 8px;
+	background: rgba(186, 155, 124, 0.15);
+	border: 2px solid rgba(186, 155, 124, 0.3);
+	color: var(--accent-color);
+	font-size: 1rem;
+	font-weight: 600;
+	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9;
+	transition: background 0.3s ease, border 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	white-space: nowrap;
+}
+
+.nav-btn:hover {
+	background: rgba(186, 155, 124, 0.25);
+	border: 2px solid rgba(186, 155, 124, 0.5);
+	transform: scale(1.05);
+	box-shadow: 0 4px 16px rgba(186, 155, 124, 0.2);
+}
+
+.nav-btn:active {
+	transform: scale(0.95);
+}
+
+.prev-btn {
+	left: 2rem;
+}
+
+.next-btn {
+	right: 2rem;
+}
+
+@media (max-width: 768px) {
+	.nav-btn {
+		padding: 0.6rem 1.2rem;
+		bottom: 1.5rem;
+		font-size: 0.95rem;
+	}
+
+	.prev-btn {
+		left: 1.5rem;
+	}
+
+	.next-btn {
+		right: 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.nav-btn {
+		padding: 0.5rem 1rem;
+		bottom: 1rem;
+		font-size: 0.85rem;
+	}
+
+	.prev-btn {
+		left: 1rem;
+	}
+
+	.next-btn {
+		right: 1rem;
+	}
+}
+
 #achievements.section.active {
-	align-items: flex-start;
+	align-items: center;
 	padding-top: 0.5rem;
+}
+
+/* ===== ACHIEVEMENTS LAYOUT ===== */
+.achievements-layout {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0.25rem 1rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    max-height: calc(100vh - 56px);
+	position: relative;
+	top: -2.5rem;
+}
+
+.achievement-column {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+}
+/* Give more space to side columns */
+.curricular-column,
+.extracurricular-column {
+    flex: 1 1 400px; /* Increased from auto to 400px minimum */
+    max-width: 450px; /* Increased from 320px */
+}
+
+/* Make middle column stay narrow */
+.achievement-photo-center {
+    flex: 0 0 280px; /* Fixed width, won't grow */
+    max-width: 280px;
+}
+
+/* Adjust the margins to use the extra space */
+.curricular-column {
+    margin-left: 0.25rem;
+}
+
+.extracurricular-column {
+    margin-right: 0.25rem;
+}	
+
+.achievement-column .category-title {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0.4rem 0;
+    font-size: 1.4rem;
+}
+
+.achievement-cards-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 380px;
+}
+
+.achievement-photo-center {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(30, 30, 30, 0.5);
+    border: 2px solid rgba(186, 155, 124, 0.15);
+    border-radius: 12px;
+    min-height: 275px;
+    /* Remove the absolute positioning to stay in flexbox flow */
+    margin: auto; /* This will help center it within its flex container */
+}
+
+.achievement-display-photo {
+    width: 100%;
+    height: auto;
+    max-width: 360px; /* Reduced from 280px */
+    max-height: 420px; /* Reduced from 320px */
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid rgba(186, 155, 124, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.achievement-display-photo.active {
+    opacity: 1;
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(186, 155, 124, 0.2);
+}
+
+.sub-achievement {
+	margin: -0.5rem;
+}
+
+.achievement-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+    border: 1px solid rgba(186,155,124,0.1);
+    transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+    flex: 0 1 auto;
+}
+
+.achievement-card:hover {
+    background: linear-gradient(135deg, rgba(35,35,35,0.8) 0%, rgba(30,30,30,0.8) 100%);
+    border: 1px solid rgba(186,155,124,0.2);
+    transform: translateY(-3px);
+}
+
+.achievement-card.active {
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.9) 0%, rgba(35, 35, 35, 0.9) 100%);
+    border: 2px solid rgba(186, 155, 124, 0.4);
+    box-shadow: 0 6px 24px rgba(186, 155, 124, 0.2);
+}
+
+/* Responsive for achievements */
+@media (max-width: 1200px) {
+    .achievements-layout {
+        flex-direction: column;
+        gap: 2rem;
+        position: relative;
+    }
+
+    .curricular-column,
+    .extracurricular-column {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .achievement-photo-center {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        min-width: 100%;
+        max-width: 100%;
+        order: -1; /* Put image at top in mobile view */
+    }
+
+    .achievement-display-photo {
+        max-width: 300px;
+        max-height: 350px;
+    }
+
+    .achievement-cards-vertical {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .achievement-column .category-title {
+        font-size: 1.3rem;
+    }
+
+    .achievement-cards-vertical {
+        gap: 1rem;
+    }
+
+    .achievement-card {
+        padding: 1rem 1.2rem;
+    }
+
+    .achievement-card h3 {
+        font-size: 1rem;
+    }
+
+    .achievement-card p {
+        font-size: 0.85rem;
+    }
+
+    .achievement-display-photo {
+        max-width: 250px;
+        max-height: 300px;
+    }
+}
+
+/* ===== FAMILY SECTION ===== */
+.family-container {
+	display: flex;
+	gap: 3rem;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.family-card {
+	background: var(--card-bg);
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+	padding: 2rem 1.8rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1.2rem;
+	border: 1px solid rgba(186,155,124,0.1);
+	transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+	min-width: 280px;
+	max-width: 340px;
+}
+
+.family-card:hover {
+	background: linear-gradient(135deg, rgba(35,35,35,0.8) 0%, rgba(30,30,30,0.8) 100%);
+	border: 1px solid rgba(186,155,124,0.2);
+	transform: translateY(-4px);
+}
+
+.family-photo {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 12px;
+	border: 2px solid rgba(186,155,124,0.15);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.family-card:hover .family-photo {
+	transform: scale(1.08);
+	filter: brightness(1.1);
+}
+
+.family-card h3 {
+	margin: 0;
+	color: var(--accent-color);
+	font-size: 1.3rem;
+	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.family-card p {
+	margin: 0;
+	color: var(--text-color);
+	font-size: 0.95rem;
+	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+	opacity: 0.85;
+	line-height: 1.6;
+}
+
+/* ===== BATCHMATES SECTION ===== */
+.batchmates-container {
+	display: flex;
+	gap: 1.25rem;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	max-height: calc(100vh - 56px);
+}
+
+.batchmates-container::-webkit-scrollbar {
+	width: 6px;
+}
+
+.batchmates-container::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.batchmates-container::-webkit-scrollbar-thumb {
+	background: rgba(186, 155, 124, 0.3);
+	border-radius: 3px;
+}
+
+.batchmates-container::-webkit-scrollbar-thumb:hover {
+	background: rgba(186, 155, 124, 0.5);
+}
+
+.batchmates-photo {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 300px;
+}
+
+.group-photo {
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	border-radius: 16px;
+	border: 2px solid rgba(186,155,124,0.15);
+	box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+	object-fit: cover;
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.group-photo:hover {
+	transform: scale(1.05);
+	filter: brightness(1.1);
+}
+
+.batchmates-list {
+	flex: 1;
+	min-width: 300px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.batchmates-list h2 {
+	margin: 0;
+	color: var(--accent-color);
+	font-size: 2rem;
+	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-align: center;
+}
+
+.names-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.25rem;
+	/* background: rgba(30,30,30,0.6); */
+	border: 1px solid rgba(186,155,124,0.1);
+	border-radius: 12px;
+	padding: 1rem;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+.name-item {
+	padding: 0.25rem 0.5rem;
+	background: var(--card-bg);
+	border: 1px solid rgba(186,155,124,0.08);
+	border-radius: 8px;
+	color: #e0e0e0;
+	font-size: 0.85rem;
+	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+	text-align: center;
+	transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+}
+
+.name-item:hover {
+	background: rgba(50,50,50,0.9);
+	border: 1px solid rgba(186,155,124,0.2);
+	color: var(--accent-color);
+}
+
+/* Responsive adjustments for Family and Batchmates */
+@media (max-width: 850px) {
+	.family-container {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.batchmates-container {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.batchmates-photo {
+		min-width: 100%;
+	}
+
+	.group-photo {
+		max-width: 100%;
+	}
+
+	.names-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 600px) {
+	.family-card {
+		min-width: 260px;
+		max-width: 100%;
+		padding: 1.5rem 1.2rem;
+	}
+
+	.family-photo {
+		width: 160px;
+		height: 160px;
+	}
+
+	.family-card h3 {
+		font-size: 1.1rem;
+	}
+
+	.family-card p {
+		font-size: 0.9rem;
+	}
+
+	.batchmates-list h2 {
+		font-size: 1.5rem;
+	}
+
+	.names-grid {
+		grid-template-columns: 1fr;
+		padding: 1rem;
+		gap: 0.6rem;
+	}
+
+	.name-item {
+		font-size: 0.85rem;
+		padding: 0.6rem 0.8rem;
+	}
 }
