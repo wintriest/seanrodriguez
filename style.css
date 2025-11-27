@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Helvetica";
-    src: url(./assets/Helvetica.ttf);
+    src: url(./assets/font/Helvetica.ttf) format("truetype");
 }
 
 body, html {
@@ -1488,6 +1488,8 @@ html, body {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 2rem 1rem;
+	position: relative;
+	top: -45px;
 }
 
 .family-card {
@@ -1550,7 +1552,7 @@ html, body {
 	display: flex;
 	gap: 1.25rem;
 	justify-content: center;
-	align-items: flex-start;
+	/* align-items: flex-start; */
 	flex-wrap: wrap;
 	width: 100%;
 	max-width: 1400px;
@@ -1560,6 +1562,8 @@ html, body {
 	overflow-x: hidden;
 	height: 100%;
 	max-height: calc(100vh - 56px);
+	position: relative;
+	top: -50px;
 }
 
 .batchmates-container::-webkit-scrollbar {
@@ -1585,6 +1589,27 @@ html, body {
 	align-items: center;
 	justify-content: center;
 	min-width: 300px;
+	flex-direction: column;
+}
+
+#block {
+	font-size: 1rem;
+	color: var(--accent-color);
+	font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+	font-weight: 700;
+	margin: -5px 10px;
+	padding: 10px;
+	letter-spacing: 0.01em;
+	opacity: 0.95;
+	text-rendering: optimizeLegibility;
+	text-align: center;
+	width: 100%;
+	position: relative;
+	top: 13px;
+	border: 1px solid rgba(186, 155, 124, 0.1);
+    border-radius: 12px;
+    padding: 0.2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
 .group-photo {
